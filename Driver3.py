@@ -99,7 +99,7 @@ def getDistance():
         temp = ord(temp) - 45
     cTmp = 331.3 + (0.606 * temp)
     #  Compute for correction factor
-    factor = cTmp / cSTP
+    factor = 1 #cTmp / cSTP
     print("Temperature: {}C\nCorrection Factor: {}".format(temp, factor))
 
     return distance * factor
