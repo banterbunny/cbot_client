@@ -44,6 +44,32 @@ smb.write_byte_data(0x1e, 0x01, 0x20)
 smb.write_byte_data(0x1e, 0x02, 0x00)
 
 
+def forwardLoopBlock(instance, distance):
+    """
+    Minified forward loop for distance measurement
+    :param instance: Variable name
+    :param distance: Distance to be measured (cm)
+    :return: True inbound; False outbound
+    :rtype: boolean
+    """
+    if instance not in globals():
+        globals()[instance] = getDistance()
+    return globals()[instance] - getDistance() < distance
+
+
+def backwardLoopBlock(instance, distance):
+    """
+    Minified backward loop for distance measurement
+    :param instance: Variable name
+    :param distance: Distance to be measured (cm)
+    :return: True inbound; False outbound
+    :rtype: boolean
+    """
+    if instance not in globals():
+        globals()[instance] = getDistance()
+    return getDistance() - globals()[instance]  < distance
+
+
 def getBearing():
     """
     Read I2C compass and compute for the heading vector
