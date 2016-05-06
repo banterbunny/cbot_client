@@ -87,7 +87,7 @@ class test_Driver3(unittest.TestCase):
             if current == -1:
                 self.assertNotEqual(current, -1)
         print("Accuracy: {}%".format( (1- abs(initial - current)/50)*100 ))
-    def test_ForwardNonTimeBounded10CM(self):
+    def test_BackwardNonTimeBounded10CM(self):
         "Distance bounded backward for 10cm mark"
         self.skipTest("Distance ongoing")
         initial = getDistance()
@@ -101,7 +101,7 @@ class test_Driver3(unittest.TestCase):
                 self.assertNotEqual(current, -1)
         print("Accuracy: {}%".format( (1- abs(initial - current)/10)*100 ))
 
-    def test_ForwardNonTimeBounded50CM(self):
+    def test_BackwardNonTimeBounded50CM(self):
         "Distance bounded backward for 50cm mark"
         self.skipTest("Distance ongoing")
         initial = getDistance()
